@@ -31,7 +31,6 @@ public class LeaseService : ILeaseService
             throw new KeyNotFoundException($"Unit with ID '{request.UnitId}' was not found.");
         }
 
-        // Business Logic Validation: Ensure a Property Manager cannot create a lease for a Unit if its Status is already "Occupied"
         if (unit.Status == UnitStatus.Occupied)
         {
             throw new InvalidOperationException($"Unit '{unit.UnitNumber}' is already occupied.");
